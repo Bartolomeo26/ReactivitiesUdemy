@@ -17,6 +17,11 @@ public class DbInitializer
                 new() {DisplayName = "Tom", UserName = "tom@test.com", Email = "tom@test.com"},
                 new() {DisplayName = "Jane", UserName = "jane@test.com", Email = "jane@test.com"}
             };
+
+            foreach (var user in users)
+            {
+                await userManager.CreateAsync(user, "Pa$$w0rd");
+            }
         }
 
         if (context.Activities.Any()) return;

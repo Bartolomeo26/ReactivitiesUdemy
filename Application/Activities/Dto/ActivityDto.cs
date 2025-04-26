@@ -1,10 +1,12 @@
 using System;
+using Application.Profiles.Dto;
 
-namespace Domain;
+namespace Application.Activities.Dto;
 
-public class Activity
+public class ActivityDto
 {
-    public string Id { get; set; } = Guid.NewGuid().ToString();
+
+    public required string Id { get; set; }
 
     public required string Title { get; set; }
 
@@ -15,6 +17,8 @@ public class Activity
     public required string Category { get; set; }
 
     public bool IsCancelled { get; set; }
+    public required string HostDisplayName { get; set; }
+    public required string HostId { get; set; }
 
     //location props
 
@@ -23,5 +27,6 @@ public class Activity
     public double Latitude { get; set; }
     public double Longitude { get; set; }
 
-    public ICollection<ActivityAttendee> Attendees { get; set; } = [];
+    public ICollection<UserProfile> Attendees { get; set; } = [];
+
 }
